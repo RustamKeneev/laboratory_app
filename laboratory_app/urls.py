@@ -15,17 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# from laboratory.views import CategoryDetail, SubcategoryAnalyze,
-# from laboratory.views import SubcategoryDetailView
-# from laboratory.views import CategoryViewSet
+from django.conf.urls.static import static
+from laboratory_app import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include("laboratory.urls")),
-    # path('api/v1/categories/', CategoryViewSet.as_view(), name="subcategories")
-    # path('api/v1/analyze_subcategories/', SubcategoryAnalyze.as_view(), name="analyze_subcategories"),
-    # path('categories/<int:pk>/', CategoryDetail.as_view(), name='category_detail'),
-    # path('subcategories/<int:id>/', SubcategoryDetailView.as_view(), name='subcategory_detail'),
 
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

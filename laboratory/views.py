@@ -1,16 +1,17 @@
-from django.http import JsonResponse
+from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.generics import RetrieveAPIView, ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from .models import Category, Lab, Analyze, PriceAnalyzeToLaboratory
+from django.views.generic import TemplateView
 from .serializers import CategorySerializer, AnalyzeSubcategorySerializer, LabSerializer, PriceAnalyzeToLaboratorySerializer
 
 
-class CategoryList(generics.ListAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+# class CategoryList(generics.ListAPIView):
+#     queryset = Category.objects.all()
+#     serializer_class = CategorySerializer
 
 
 class SubcategoryList(generics.ListAPIView):
@@ -54,3 +55,13 @@ class SubcategoryDetail(RetrieveAPIView):
 
 class PriceAnalyzeToLaboratoryListView(ListAPIView):
     serializer_class = PriceAnalyzeToLaboratorySerializer
+
+
+class CategoryView(TemplateView):
+    template_name = 'laboratory/category.html'
+
+    def get(self, request, *args, **kwargs):
+        category_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'category_list': category_list,
+        })
