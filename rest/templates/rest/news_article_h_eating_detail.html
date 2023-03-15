@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{#{% load drug_tags %}#}
+{% block content %}
+    <div class="wrapper one-page">
+        <div class="container">
+            <div class="content">
+                <div class="title-name"><h1 class="title">{{ item.title }}</h1></div>
+                <div class="flex">
+                    <div class="one-image"><img src="{{ item.image.url }}" alt=""></div>
+                    <div class="one-description">
+                        <div class="date"><span>{{ item.date|date:'d.m.Y' }}</span></div>
+                        {#                        <div class="one-desc-text">#}
+                        {#                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat lectus et nibh consectetur#}
+                        {#                            id#}
+                        {#                            sed leo. Amet mi sed vitae, faucibus vitae nunc. Lacus, iaculis nunc risus in turpis. Et#}
+                        {#                            amet#}
+                        {#                            mattis mauris, sed cras lorem fermentum. A dolor luctus lacus, nec. Justo duis sed leo#}
+                        {#                            tellus#}
+                        {#                            consequat dignissim ut. Quam sed non arcu commodo urna bibendum. Morbi rutrum diam cursus#}
+                        {#                            pellentesque fermentum imperdiet porta amet faucibus. Augue.#}
+                        {#                        </div>#}
+                    </div>
+                </div>
+                <div class="product-description">
+
+                    <div class="pd-content">{{ item.description|safe }}</div>
+                </div>
+            </div>
+            {% side_bar %}
+        </div>
+    </div>
+{% endblock %}
+

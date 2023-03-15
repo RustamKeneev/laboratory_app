@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% load static %}
+{#{% load drug_tags %}#}
+{% block content %}
+    <div class="wrapper one-page">
+        <div class="container">
+            <div class="content">
+                <div class="category-name"><h1 class="title">Контакты</h1></div>
+                <div class="about-us">{{ about|safe }}</div>
+            </div>
+            {% side_bar %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{#{% load drug_tags %}#}
+{% block content %}
+    <div class="wrapper">
+        <div class="container">
+            <div class="content">
+                <div class="category-name"><h1 class="title">Лаборатории</h1></div>
+                <div class="news-list">
+                    {% for item in laboratory_list %}
+                        <div class="news-item">
+                            <div class="news-item__desc">
+                                <div class="name"><a href="{% url 'lab_med_detail' item.id %}">{{ item.title }}</a>
+                                </div>
+                                <div class="date">{{ item.date|date:'d.m.Y' }}</div>
+                                <div class="text">{{ item.short_description }}</div>
+                            </div>
+                            <div class="news-item__image"><a href="{% url 'lab_med_detail' item.id %}"><img
+                                    src="{{ item.image.url }}" alt=""></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% side_bar %}
+        </div>
+    </div>
+{% endblock %}

@@ -7,6 +7,7 @@ from rest_framework.views import APIView
 from .models import Category, Lab, Analyze, PriceAnalyzeToLaboratory
 from django.views.generic import TemplateView
 from .serializers import CategorySerializer, AnalyzeSubcategorySerializer, LabSerializer, PriceAnalyzeToLaboratorySerializer
+from rest.models import *
 
 
 # class CategoryList(generics.ListAPIView):
@@ -61,18 +62,19 @@ class IndexView(TemplateView):
     template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
-        # slider_list = Slider.objects.all()
-        # partner_list = Partner.objects.all()
-        # healthy_eating = HealthyEating.objects.last()
-        # news = NewsAndArticle.objects.filter(type='news').last()
-        # contact = Contact.objects.last()
+        slider_list = Slider.objects.all()
+        partner_list = Partner.objects.all()
+        healthy_eating = HealthyEating.objects.last()
+        news = NewsAndArticle.objects.filter(type='news').last()
+        contact = Contact.objects.last()
         return render(request, self.template_name, context={
-            # 'slider_list': slider_list,
-            # 'partner_list': partner_list,
-            # 'healthy_eating': healthy_eating,
-            # 'news': news,
-            # 'contact': contact,
+            'slider_list': slider_list,
+            'partner_list': partner_list,
+            'healthy_eating': healthy_eating,
+            'news': news,
+            'contact': contact,
         })
+
 
 class CategoryView(TemplateView):
     template_name = 'laboratory/category.html'

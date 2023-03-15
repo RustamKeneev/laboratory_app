@@ -1,0 +1,22 @@
+{% load static %}
+<div class="sidebar">
+    <div class="grey-block">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- saidbar -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8499366631782835"
+             data-ad-slot="1281339966"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    {% for banner in banner_list %}
+        <div class="banner banner-1"><a href="#" target="_blank"><img src="{{ banner.image.url }}" alt=""></a>
+        </div>
+    {% endfor %}
+
+
+</div>

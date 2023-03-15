@@ -1,0 +1,11 @@
+{% load static %}
+{% block content %}
+    <div class="wrapper one-page">
+        <div class="container">
+            <div class="content">
+                <div class="confidentiality-title" style="font-size: 50px;">{{ confidentiality.title }}</div>
+                <div class="confidentiality-description">{{ confidentiality.description|safe }}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

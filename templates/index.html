@@ -3,9 +3,9 @@
 {#{% load drug_tags %}#}
 {% block content %}
     <div class="main-carousel owl-carousel owl-theme">
-{#        {% for slider in slider_list %}#}
-{#            <div class="item"><a href="{{ slider.website }}"><img src="{{ slider.image.url }}" alt=""></a></div>#}
-{#        {% endfor %}#}
+        {% for slider in slider_list %}
+            <div class="item"><a href="{{ slider.website }}"><img src="{{ slider.image.url }}" alt=""></a></div>
+        {% endfor %}
     </div>
     <div class="sb-category">
         <div class="container">
@@ -15,7 +15,7 @@
 {#{% url 'healthy_eating_list' %}#}
 ">
                         <div class="thumb">
-{#                            <img src="{% static 'images/icons/tablets.png' %}" alt="">#}
+                            <img src="{% static 'images/icons/tablets.png' %}" alt="">
                         </div>
                         <h3 class="name">Лекарства</h3>
                         <div class="text">Более 4000 лекарств, БАДов, медицинских изделий и материалов.
@@ -27,7 +27,7 @@
 {#{% url 'med_center_list' %}#}
 ">
                         <div class="thumb">
-{#                            <img src="{% static 'images/icons/hospital.png' %}" alt="">#}
+                            <img src="{% static 'images/icons/hospital.png' %}" alt="">
                         </div>
                         <h3 class="name">Медицинские центры</h3>
                         <div class="text">Самый большой каталог медицинских учреждений.</div>
@@ -38,7 +38,7 @@
 {#{% url 'laboratory_list' %}#}
 ">
                         <div class="thumb">
-{#                            <img src="{% static 'images/icons/microscope.png' %}" alt="">#}
+                            <img src="{% static 'images/icons/microscope.png' %}" alt="">
                         </div>
                         <h3 class="name">Лаборатории</h3>
                         <div class="text">От бонецкого до небольших лабораторий.
@@ -50,7 +50,7 @@
 {#{% url 'pharmacy_points' %}#}
 ">
                         <div class="thumb"><img src="
-{#{% static 'images/icons/pharmacynew.png' %}#}
+{% static 'images/icons/pharmacynew.png' %}
 " alt=""></div>
                         <h3 class="name">Аптечные пункты</h3>
                         <div class="text">797 аптечных пунктов по всей республике.
@@ -67,7 +67,7 @@
     </div>
     <div class="main-news">
         <div class="container flex-between flex">
-{#            {% if healthy_eating %}#}
+            {% if healthy_eating %}
                 <div class="news-item">
                     <div class="news-item__desc">
                         <div class="cat">Здоровое питание</div>
@@ -93,40 +93,40 @@
 {#{% url 'healthy_eating_detail' healthy_eating.id %}#}
 "><img
                             src="
-{#{{ healthy_eating.image.url }}#}
+{{ healthy_eating.image.url }}
 " alt=""></a>
                     </div>
                 </div>
-{#            {% endif %}#}
-{#            {% if news %}#}
+            {% endif %}
+            {% if news %}
                 <div class="news-item">
                     <div class="news-item__desc">
                         <div class="cat">Новость</div>
                         <div class="name"><a href="
-{#{% url 'news_article_detail' news.id %}#}
+{% url 'news_article_detail' news.id %}
 ">
-{#                            {{ news.title }}#}
+                            {{ news.title }}
                         </a></div>
                         <div class="date">
-{#                            {{ news.date|date:'d.m.Y' }}#}
+                            {{ news.date|date:'d.m.Y' }}
                         </div>
                         <div class="text">
-{#                            {{ news.short_description }}#}
+                            {{ news.short_description }}
                         </div>
                         <a href="
-{#{% url 'news_article_detail' news.id %}#}
+{% url 'news_article_detail' news.id %}
 " class="read-more btn main-btn">Читать
                             далее...</a>
                     </div>
                     <div class="news-item__image"><a href="
-{#{% url 'news_article_detail' news.id %}#}
+{% url 'news_article_detail' news.id %}
 "><img
                             src="
-{#{{ news.image.url }}#}
+{{ news.image.url }}
 " alt=""></a>
                     </div>
                 </div>
-{#            {% endif %}#}
+            {% endif %}
 
         </div>
     </div>
@@ -184,29 +184,29 @@
                 </div>
 
                 <div class="buttons">
-                    {#                    <button class="btn btn_green">Кпопка</button>#}
-                    {#                    <button class="btn">Кпопка</button>#}
+                                        <button class="btn btn_green">Кпопка</button>
+                                        <button class="btn">Кпопка</button>
                 </div>
                 <div class="link">
-{#                    {% if contact.app_store %}#}
-{#                        <a class="link__item" target="_blank" href="{{ contact.app_store }}"><img#}
-{#                                src="{% static 'images/app-store.png' %}" alt=""></a>#}
-{#                    {% else %}#}
-{#                        <a class="link__item" href="#"><img#}
-{#                                src="{% static 'images/app-store.png' %}" alt=""></a>#}
-{#                    {% endif %}#}
-{##}
-{#                    {% if contact.google_play %}#}
-{#                        <a class="link__item" target="_blank" href="{{ contact.google_play }}"><img#}
-{#                                src="{% static 'images/google-play.png' %}" alt=""></a>#}
-{#                    {% else %}#}
-{#                        <a class="link__item" href="#"><img#}
-{#                                src="{% static 'images/google-play.png' %}" alt=""></a>#}
-{#                    {% endif %}#}
-{#                      <a class="link__item" href="http://appstore.com/mac/keynote"><img#}
-{#                                src="{% static 'images/app-store.png' %}" alt=""></a>#}
-{#                      <a class="link__item" href="https://play.google.com/store/apps/details?id=com.onlinepharmacy"><img#}
-{#                                src="{% static 'images/google-play.png' %}" alt=""></a>#}
+                    {% if contact.app_store %}
+                        <a class="link__item" target="_blank" href="{{ contact.app_store }}"><img
+                                src="{% static 'images/app-store.png' %}" alt=""></a>
+                    {% else %}
+                        <a class="link__item" href="#"><img
+                                src="{% static 'images/app-store.png' %}" alt=""></a>
+                    {% endif %}
+
+                    {% if contact.google_play %}
+                        <a class="link__item" target="_blank" href="{{ contact.google_play }}"><img
+                                src="{% static 'images/google-play.png' %}" alt=""></a>
+                    {% else %}
+                        <a class="link__item" href="#"><img
+                                src="{% static 'images/google-play.png' %}" alt=""></a>
+                    {% endif %}
+                      <a class="link__item" href="http://appstore.com/mac/keynote"><img
+                                src="{% static 'images/app-store.png' %}" alt=""></a>
+                      <a class="link__item" href="https://play.google.com/store/apps/details?id=com.onlinepharmacy"><img
+                                src="{% static 'images/google-play.png' %}" alt=""></a>
 
                 </div>
             </div>
@@ -217,10 +217,10 @@
         <div class="container">
             <h2 class="h2-title">Наши партнеры</h2>
             <div class="partners-list">
-{#                {% for partner in partner_list %}#}
-{#                    <div class="partners-list__item"><a href="{{ partner.website }}"><img src="{{ partner.image.url }}"#}
-{#                                                                                          alt=""></a></div>#}
-{#                {% endfor %}#}
+                {% for partner in partner_list %}
+                    <div class="partners-list__item"><a href="{{ partner.website }}"><img src="{{ partner.image.url }}"
+                                                                                          alt=""></a></div>
+                {% endfor %}
             </div>
         </div>
     </div>

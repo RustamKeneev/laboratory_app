@@ -1,20 +1,16 @@
 <div class="ftr-block popular-posts">
 
-    <div class="ftr-contact"><a href="tel:
-{#{{ about.phone }}#}
-" class="ftr-contact__link phone">
-{#        {{ about.phone }}#}
-    </a></div>
+    <div class="ftr-contact">
+        <a href="tel:{{ about.phone }} "class="ftr-contact__link phone">{{ about.phone }}</a>
+    </div>
             {#    <div class="ftr-contact"><a href="" class="ftr-contact__link address">Бишкек, пр. Чуй 199</a></div>#}
-    <div class="ftr-contact"><a href="mailto:
-{#{{ about.email }}#}
-" class="ftr-contact__link email">
-{#        {{ about.email }}#}
+    <div class="ftr-contact"><a href="mailto:{{ about.email }}" class="ftr-contact__link email">
+        {{ about.email }}
     </a>
     </div>
     <div class="ftr-social">
         <a href="
-{#{{ about.instagram }}#}
+{{ about.instagram }}
 " target="_blank" class="s-icon in">
             <svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512"
                  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -32,7 +28,7 @@
             </svg>
         </a>
         <a href="https://api.whatsapp.com/send?phone=
-{#{{ about.whatsapp }}#}
+{{ about.whatsapp }}
 " target="_blank" class="s-icon wh">
             <svg xmlns="http://www.w3.org/2000/svg" height="512px" viewBox="0 0 512 512" width="512px"
                  class="">
@@ -47,7 +43,7 @@
             </svg>
         </a>
         <a href="
-{#{{ about.telegram }}#}
+{{ about.telegram }}
 " target="_blank" class="s-icon tg">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                  id="Layer_1" x="0px" y="0px" viewBox="0 0 455 455"
