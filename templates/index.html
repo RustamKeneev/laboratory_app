@@ -1,11 +1,228 @@
 {% extends 'main.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-</head>
-<body>
-    <h1>Home</h1>
-</body>
-</html>
+{% load static %}
+{#{% load drug_tags %}#}
+{% block content %}
+    <div class="main-carousel owl-carousel owl-theme">
+{#        {% for slider in slider_list %}#}
+{#            <div class="item"><a href="{{ slider.website }}"><img src="{{ slider.image.url }}" alt=""></a></div>#}
+{#        {% endfor %}#}
+    </div>
+    <div class="sb-category">
+        <div class="container">
+            <div class="sb-category-list">
+                <div class="sb-cat__item">
+                    <a href="
+{#{% url 'healthy_eating_list' %}#}
+">
+                        <div class="thumb">
+{#                            <img src="{% static 'images/icons/tablets.png' %}" alt="">#}
+                        </div>
+                        <h3 class="name">Лекарства</h3>
+                        <div class="text">Более 4000 лекарств, БАДов, медицинских изделий и материалов.
+                        </div>
+                    </a>
+                </div>
+                <div class="sb-cat__item">
+                    <a href="
+{#{% url 'med_center_list' %}#}
+">
+                        <div class="thumb">
+{#                            <img src="{% static 'images/icons/hospital.png' %}" alt="">#}
+                        </div>
+                        <h3 class="name">Медицинские центры</h3>
+                        <div class="text">Самый большой каталог медицинских учреждений.</div>
+                    </a>
+                </div>
+                <div class="sb-cat__item">
+                    <a href="
+{#{% url 'laboratory_list' %}#}
+">
+                        <div class="thumb">
+{#                            <img src="{% static 'images/icons/microscope.png' %}" alt="">#}
+                        </div>
+                        <h3 class="name">Лаборатории</h3>
+                        <div class="text">От бонецкого до небольших лабораторий.
+                        </div>
+                    </a>
+                </div>
+                <div class="sb-cat__item">
+                    <a href="
+{#{% url 'pharmacy_points' %}#}
+">
+                        <div class="thumb"><img src="
+{#{% static 'images/icons/pharmacynew.png' %}#}
+" alt=""></div>
+                        <h3 class="name">Аптечные пункты</h3>
+                        <div class="text">797 аптечных пунктов по всей республике.
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="sx-category-list">
+                <div class="sx-cat__item">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-news">
+        <div class="container flex-between flex">
+{#            {% if healthy_eating %}#}
+                <div class="news-item">
+                    <div class="news-item__desc">
+                        <div class="cat">Здоровое питание</div>
+                        <div class="name"><a
+                                href="
+{#{% url 'healthy_eating_detail' healthy_eating.id %}#}
+">
+{#                            {{ healthy_eating.title }}#}
+                        </a>
+                        </div>
+                        <div class="date">
+{#                            {{ healthy_eating.date|date:'d.m.Y' }}#}
+                        </div>
+                        <div class="text">
+{#                            {{ healthy_eating.short_description }}#}
+                        </div>
+                        <a href="
+{#{% url 'healthy_eating_detail' healthy_eating.id %}#}
+" class="read-more btn main-btn">Читать
+                            далее...</a>
+                    </div>
+                    <div class="news-item__image"><a href="
+{#{% url 'healthy_eating_detail' healthy_eating.id %}#}
+"><img
+                            src="
+{#{{ healthy_eating.image.url }}#}
+" alt=""></a>
+                    </div>
+                </div>
+{#            {% endif %}#}
+{#            {% if news %}#}
+                <div class="news-item">
+                    <div class="news-item__desc">
+                        <div class="cat">Новость</div>
+                        <div class="name"><a href="
+{#{% url 'news_article_detail' news.id %}#}
+">
+{#                            {{ news.title }}#}
+                        </a></div>
+                        <div class="date">
+{#                            {{ news.date|date:'d.m.Y' }}#}
+                        </div>
+                        <div class="text">
+{#                            {{ news.short_description }}#}
+                        </div>
+                        <a href="
+{#{% url 'news_article_detail' news.id %}#}
+" class="read-more btn main-btn">Читать
+                            далее...</a>
+                    </div>
+                    <div class="news-item__image"><a href="
+{#{% url 'news_article_detail' news.id %}#}
+"><img
+                            src="
+{#{{ news.image.url }}#}
+" alt=""></a>
+                    </div>
+                </div>
+{#            {% endif %}#}
+
+        </div>
+    </div>
+
+        <div class="app-block">
+            <div class="container">
+                <div class="text">
+                    <h2 class="title"><b>Адаптация</b> под разные устройства</h2>
+                    <div class="desc">Onlineapteka.kg - это большая база аптечных пунктов, лекарств, медицинских центров,
+                        лабораторий.
+                    </div>
+                </div>
+            <div class="main-carousel owl-carousel owl-theme">
+                        <div class="iphone-carousel-bg"></div>
+                        <div class="iphone-carousel-bg"></div>
+                        <div class="iphone-carousel-bg"></div>
+                        <div class="iphone-carousel-bg"></div>
+
+                    </div>
+            </div>
+        </div>
+
+{#    {% popular_drug_list %}#}
+    <div class="info-block">
+        <div class="container">
+            <div class="info-block-list">
+                <div class="info-block-list__img">
+                    <div class="img"></div>
+                </div>
+                <div class="info-block-list__item">
+                    <h4 class="info-block__title"><span>Поиск лекарств</span> на карте</h4>
+                    <h4 class="info-block__text">
+                        В сервисе online apteka встроена карта по которому можно легко найти то, что вам нужно. <br><br>
+                        Для этого всего лишь нужно пару шагов: <br><br>Шаг 1. Перейдите на страницу "каталог". <br><br>Шаг
+                        2.
+                        Выберите
+                        нужное лекарство. Для этого выберите категорию или воспользуйтесь поиском.
+                        <br><br>Шаг 3. Зайдите в описание лекарства, нажмите на кнопку "в наличии" и вы увидите на карте
+                        в каких аптеках она есть.
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app-block-2">
+        <div class="container">
+            <div class="image">
+                <img src="{% static 'images/app.png' %}" alt="">
+            </div>
+            <div class="text">
+                <h2 class="title"><b>Скачай</b> мобильное приложение onlineapteka.kg</h2>
+                <div class="desc">Специально для пользователей были разработаны мобильные приложения для операционных
+                    систем Android и iOS.
+                    Их вы можете скачать в App Store или в Play Market.
+                </div>
+
+                <div class="buttons">
+                    {#                    <button class="btn btn_green">Кпопка</button>#}
+                    {#                    <button class="btn">Кпопка</button>#}
+                </div>
+                <div class="link">
+{#                    {% if contact.app_store %}#}
+{#                        <a class="link__item" target="_blank" href="{{ contact.app_store }}"><img#}
+{#                                src="{% static 'images/app-store.png' %}" alt=""></a>#}
+{#                    {% else %}#}
+{#                        <a class="link__item" href="#"><img#}
+{#                                src="{% static 'images/app-store.png' %}" alt=""></a>#}
+{#                    {% endif %}#}
+{##}
+{#                    {% if contact.google_play %}#}
+{#                        <a class="link__item" target="_blank" href="{{ contact.google_play }}"><img#}
+{#                                src="{% static 'images/google-play.png' %}" alt=""></a>#}
+{#                    {% else %}#}
+{#                        <a class="link__item" href="#"><img#}
+{#                                src="{% static 'images/google-play.png' %}" alt=""></a>#}
+{#                    {% endif %}#}
+{#                      <a class="link__item" href="http://appstore.com/mac/keynote"><img#}
+{#                                src="{% static 'images/app-store.png' %}" alt=""></a>#}
+{#                      <a class="link__item" href="https://play.google.com/store/apps/details?id=com.onlinepharmacy"><img#}
+{#                                src="{% static 'images/google-play.png' %}" alt=""></a>#}
+
+                </div>
+            </div>
+        </div>ала
+    </div>
+
+    <div class="partners">
+        <div class="container">
+            <h2 class="h2-title">Наши партнеры</h2>
+            <div class="partners-list">
+{#                {% for partner in partner_list %}#}
+{#                    <div class="partners-list__item"><a href="{{ partner.website }}"><img src="{{ partner.image.url }}"#}
+{#                                                                                          alt=""></a></div>#}
+{#                {% endfor %}#}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

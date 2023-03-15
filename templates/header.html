@@ -1,0 +1,50 @@
+{% load static %}
+<header class="header">
+    <div class="topline">
+        <div class="container flex flex-between">
+            <div class="xs-search-btn">
+
+            </div>
+            <div class="logo">
+                <a href="
+{#{% url 'index' %}#}
+">
+                    <div class="logo-wrapper">
+                        logotype
+                    </div>
+                </a>
+            </div>
+            <div class="top-search">
+                <form action="search-form">
+                    <input type="text" class="search-input" name="item" placeholder="Поиск лекарств, аптек, изделий"/>
+                    <input type="submit" class="search-btn" value="Поиск"/>
+                </form>
+            </div>
+            <div class="login-block">
+                login-block
+            </div>
+            <div class="mobile-menu">
+
+            </div>
+        </div>
+        <div class="container flex flex-between  xs-bottom-menu">
+            <nav class="top-menu">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </nav>
+            <div class="profile-link">
+                <a href="#">Профиль</a>
+                <a href="#">Настройки</a>
+            </div>
+            <div class="login-block xs-visible">
+                <a href="#">Выйти</a>
+                <a href="#">Войти</a>
+            </div>
+        </div>
+    </div>
+</header>

@@ -3,13 +3,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{#    <link rel="stylesheet" href="{% static 'css/style.css' %}">#}
+    {% include 'meta_header.html' %}
+    <title>Онлайн аптека</title>
+
 </head>
 <body>
-    <h1>Main</h1>
+    {% include 'header.html' %}
     {% block content %}
 
     {% endblock %}
+    {% include 'footer.html' %}
+{#    {% include 'meta_footer.html' %}#}
+
+
 </body>
 </html>
