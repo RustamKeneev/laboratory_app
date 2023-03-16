@@ -10,11 +10,6 @@ from .serializers import CategorySerializer, AnalyzeSubcategorySerializer, LabSe
 from rest.models import *
 
 
-# class CategoryList(generics.ListAPIView):
-#     queryset = Category.objects.all()
-#     serializer_class = CategorySerializer
-
-
 class SubcategoryList(generics.ListAPIView):
     serializer_class = AnalyzeSubcategorySerializer
 
@@ -83,4 +78,64 @@ class CategoryView(TemplateView):
         category_list = Category.objects.all()
         return render(request, self.template_name, context={
             'category_list': category_list,
+        })
+
+
+class CatalogView(TemplateView):
+    template_name = 'laboratory/catalog.html'
+
+    def get(self, request, *args, **kwargs):
+        catalog_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'catalog_list': catalog_list,
+        })
+
+
+class PharmacyView(TemplateView):
+    template_name = 'laboratory/pharmacy.html'
+
+    def get(self, request, *args, **kwargs):
+        pharmacy_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'pharmacy_list': pharmacy_list,
+        })
+
+
+class DoctorsView(TemplateView):
+    template_name = 'laboratory/doctors.html'
+
+    def get(self, request, *args, **kwargs):
+        doctors_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'doctors_list': doctors_list,
+        })
+
+
+class NewsView(TemplateView):
+    template_name = 'laboratory/news.html'
+
+    def get(self, request, *args, **kwargs):
+        news_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'news_list': news_list,
+        })
+
+
+class ArticlesView(TemplateView):
+    template_name = 'laboratory/articles.html'
+
+    def get(self, request, *args, **kwargs):
+        articles_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'articles_list': articles_list,
+        })
+
+
+class ContactsView(TemplateView):
+    template_name = 'laboratory/contacts.html'
+
+    def get(self, request, *args, **kwargs):
+        contacts_list = Category.objects.all()
+        return render(request, self.template_name, context={
+            'contacts_list': contacts_list,
         })
