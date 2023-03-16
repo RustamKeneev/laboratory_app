@@ -85,10 +85,21 @@ class CatalogView(TemplateView):
     template_name = 'laboratory/catalog.html'
 
     def get(self, request, *args, **kwargs):
-        catalog_list = Category.objects.all()
+        # catalog_list = Category.objects.all()
+        catalog_list = Category.objects.prefetch_related('subcategories').all()
         return render(request, self.template_name, context={
             'catalog_list': catalog_list,
         })
+
+
+# class CategoryView(TemplateView):
+#     template_name = 'drug/category.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         category_list = Category.objects.prefetch_related('subcategory_set').all()
+#         return render(request, self.template_name, context={
+#             'category_list': category_list,
+#         })
 
 
 class PharmacyView(TemplateView):
