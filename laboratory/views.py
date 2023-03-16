@@ -93,6 +93,7 @@ class CatalogView(TemplateView):
 
 
 print("s")
+print("s")
 
 
 # class CategoryView(TemplateView):
