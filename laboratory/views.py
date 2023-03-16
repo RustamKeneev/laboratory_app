@@ -92,6 +92,9 @@ class CatalogView(TemplateView):
         })
 
 
+print("s")
+
+
 # class CategoryView(TemplateView):
 #     template_name = 'drug/category.html'
 #
