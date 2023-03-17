@@ -22,7 +22,7 @@ class LabSerializer(serializers.ModelSerializer):
 class SubcategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Analyze
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'category']
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -40,5 +40,4 @@ class AnalyzeSubcategorySerializer(serializers.ModelSerializer):
         model = Analyze
         fields = ('id', 'title', 'description', 'preparationForAnalysis', 'requirements', 'interpretationOfResults',
                   'laboratoryTest', 'biomaterial', 'deadlineDateOfIssueOfResults', 'category', 'parent_subcategory',
-                 'lab_prices' )
-
+                  'lab_prices')

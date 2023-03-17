@@ -71,39 +71,37 @@ class IndexView(TemplateView):
         })
 
 
-class CategoryView(TemplateView):
+# class CategoryView(TemplateView):
+#     template_name = 'laboratory/category.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         category_list = Category.objects.all()
+#         return render(request, self.template_name, context={
+#             'category_list': category_list,
+#         })
+
+
+class CatalogView(TemplateView):
     template_name = 'laboratory/category.html'
 
     def get(self, request, *args, **kwargs):
-        category_list = Category.objects.all()
+        # catalog_list = Category.objects.all()
+        category_list = Category.objects.prefetch_related('subcategories').all()
         return render(request, self.template_name, context={
             'category_list': category_list,
         })
 
 
-class CatalogView(TemplateView):
-    template_name = 'laboratory/catalog.html'
+class AnalyzeListView(TemplateView):
+    template_name = 'laboratory/analyze_list.html'
 
     def get(self, request, *args, **kwargs):
-        # catalog_list = Category.objects.all()
-        catalog_list = Category.objects.prefetch_related('subcategories').all()
+        title = Analyze.objects.get(id=kwargs['category_id']).title
+        analyze_list = Analyze.objects.filter(category_id=kwargs['category_id'])
         return render(request, self.template_name, context={
-            'catalog_list': catalog_list,
+            'analyze_list':analyze_list,
+            'title': title
         })
-
-
-print("s")
-print("s")
-
-
-# class CategoryView(TemplateView):
-#     template_name = 'drug/category.html'
-#
-#     def get(self, request, *args, **kwargs):
-#         category_list = Category.objects.prefetch_related('subcategory_set').all()
-#         return render(request, self.template_name, context={
-#             'category_list': category_list,
-#         })
 
 
 class PharmacyView(TemplateView):

@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{#{% load drug_tags %}#}
+{% block content %}
+    <div class="wrapper">
+        <div class="container">
+            <div class="content">
+                <div class="news-name"><h1 class="title">{{ title }}</h1></div>
+                {#                <div class="news-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget a ultrices#}
+                {#                    maecenas mi gravida tempor morbi. Eget sit.#}
+                {#                </div>#}
+                <div class="products">
+                    <div class="filters">
+                        <div class="order-by-name">
+                            {% for letter in rus_letters %}
+                                <form method="get">
+                                    <input type="hidden" name="letter" value="{{ letter }}">
+                                    <input type="submit" class="obn-item" value="{{ letter }}"
+                                           style="background-color: white">
+                                </form>
+                            {% endfor %}
+                            {% for letter in en_letters %}
+                                <form method="get">
+                                    <input type="hidden" name="letter" value="{{ letter }}">
+                                    <input type="submit" class="obn-item" value="{{ letter }}"
+                                           style="background-color: white">
+                                </form>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="product-list">
+                        {% for drug in drug_list %}
+                            <div class="product">
+                                <a href="{% url 'drug_detail' drug.id %}">
+                                    <div class="product-image"><img src="{{ drug.image.url }}" alt="{{ drug.title }}">
+                                    </div>
+                                    <div class="product-name">{{ drug.title }}</div>
+                                    <div class="product-desc">{{ drug.description|safe }}</div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% if not drug_list %}
+                        <span>Пусто</span>
+                    {% endif %}
+                </div>
+            </div>
+{#            {% side_bar %}#}
+        </div>
+    </div>
+{% endblock %}

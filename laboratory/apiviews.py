@@ -5,15 +5,23 @@ from laboratory.serializers import *
 from laboratory.models import Category
 
 
-# class CategoryAPI(APIView):
-#     """All category list"""
-#     def get(self, request):
-#         category_list = Category.objects.all()
-#         data = CategorySerializer(category_list, many=True).data
-#         return Response(data)
-
-
-class CategoryAPI(generics.ListAPIView):
+class CategoryAPI(APIView):
     """All category list"""
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
+    def get(self, request):
+        category_list = Category.objects.all()
+        data = CategorySerializer(category_list, many=True).data
+        return Response(data)
+
+
+class AnalyzeSubcategoryAPI(APIView):
+    """Analyze subcategory list by category"""
+    def get(self, request, **kwargs):
+        analyze_sub_category_list = Analyze.objects.filter(category_id=kwargs['category_id'])
+        data = SubcategorySerializer(analyze_sub_category_list, many=True).data
+        return Response(data)
+
+
+# class CategoryAPI(generics.ListAPIView):
+#     """All category list"""
+#     queryset = Category.objects.all()
+#     serializer_class = CategorySerializer
