@@ -3,8 +3,8 @@ from .views import *
 from .apiviews import *
 
 urlpatterns = [
-    path('category/', CatalogView.as_view(), name='category'),
-    path('category/<int:pk>/', CategoryDetail.as_view(), name='category-detail'),
+    path('category/', CategoryView.as_view(), name='category'),
+    path('category/<int:pk>/', AnalyzeListView.as_view(), name='category-detail'),
     path('catalog/', CatalogView.as_view(), name='catalog'),
     path('pharmacy/', PharmacyView.as_view(), name='pharmacy'),
     path('doctors/', DoctorsView.as_view(), name='doctors'),

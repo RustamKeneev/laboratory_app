@@ -8,40 +8,31 @@
     <title>Категория</title>
 </head>
 <body>
-    {% block content %}
-        <div class="wrapper">
-            <div class="container">
-                <div class="content">
-                    <div class="laboratory-name">
-                        <h1 class="title">
-                            Категория Анализов
-                        </h1>
-                    </div>
+{% block content %}
+    <div class="wrapper">
+        <div class="container">
+            <div class="content">
+                <div class="laboratory-name">
+                    <h1 class="title">
+                        Категория Анализов
+                    </h1>
+                </div>
+                <div class="categories">
                     <div class="categories">
-                        <div class="categories">
-                            {% for category in category_list %}
+                        {% for category in categories %}
+                            <div class="cat__cell">
                                 <div class="cat__cell">
-{#                                    <div class="cat__cell">#}
-{#                                        <span>{{ category.name }}</span>#}
-{#                                    </div>#}
-                                <div class="cat__cell-title" data-tab="subcategories-block-{{ forloop.counter }}">
-{#                                    <img src="{{ category.image.url }}" alt="">#}
-                                    <span>{{ category.name }}</span>
+{#                                    <span>{{ category.name }}</span>#}
+                                    <a href="{% url 'category-detail' pk=category.pk  %}"> {{ category.name }}</a>
                                 </div>
-                                <div class="subcategories-block subcategories-block-{{ forloop.counter }}">
-                                    {% for sub_category in category.subcategories.all %}
-{#                                        <a href="{% url 'analyze_list' sub_category.id %}"#}
-{#                                           class="subcategories-link">{{ sub_category.title }}</a>#}
-                                    {% endfor %}
-                                </div>
-                                </div>
-                            {% endfor %}
-                        </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
         </div>
-    {% endblock %}
+    </div>
+{% endblock %}
 
 </body>
 </html>

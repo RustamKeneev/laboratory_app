@@ -17,31 +17,10 @@ class SubcategoryList(generics.ListAPIView):
         return Analyze.objects.filter(parent_subcategory=None)
 
 
-class CategoryDetail(APIView):
-
-    def get_object(self, pk):
-        try:
-            return Category.objects.get(pk=pk)
-        except Category.DoesNotExist:
-            raise status.HTTP_404_NOT_FOUND
-
-    def get(self, request, pk):
-        category = self.get_object(pk)
-        serializer = CategorySerializer(category)
-        return Response(serializer.data)
-
-    def put(self, request, pk):
-        category = self.get_object(pk)
-        serializer = CategorySerializer(category, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        category = self.get_object(pk)
-        category.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+class CategoryDetail(TemplateView):
+    model = Category
+    template_name = 'laboratory/analyze_list.html'
+    context_object_name = 'category'
 
 
 class SubcategoryDetail(RetrieveAPIView):
@@ -71,37 +50,55 @@ class IndexView(TemplateView):
         })
 
 
-# class CategoryView(TemplateView):
-#     template_name = 'laboratory/category.html'
-#
-#     def get(self, request, *args, **kwargs):
-#         category_list = Category.objects.all()
-#         return render(request, self.template_name, context={
-#             'category_list': category_list,
-#         })
+class CategoryView(TemplateView):
+    template_name = 'laboratory/category.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        categories = Category.objects.all()
+        context['categories'] = categories
+        return context
+
+    # def get(self, request, *args, **kwargs):
+    #     category_id = kwargs.get('category_id')
+    #     if category_id:
+    #         category = Category.objects.prefetch_related('subcategories').get(id=category_id)
+    #         context = {'category': category}
+    #     else:
+    #         category_list = Category.objects.prefetch_related('subcategories').all()
+    #         context = {'category_list': category_list}
+    #     return render(request, self.template_name, context=context)
 
 
 class CatalogView(TemplateView):
-    template_name = 'laboratory/category.html'
+    template_name = 'laboratory/catalog.html'
 
     def get(self, request, *args, **kwargs):
-        # catalog_list = Category.objects.all()
-        category_list = Category.objects.prefetch_related('subcategories').all()
+        catalog_list = Category.objects.all()
+        # catalog_list = Category.objects.prefetch_related('subcategories').all()
         return render(request, self.template_name, context={
-            'category_list': category_list,
+            'catalog_list': catalog_list,
         })
 
 
 class AnalyzeListView(TemplateView):
-    template_name = 'laboratory/analyze_list.html'
+    template_name = 'laboratory/news.html'
 
-    def get(self, request, *args, **kwargs):
-        title = Analyze.objects.get(id=kwargs['category_id']).title
-        analyze_list = Analyze.objects.filter(category_id=kwargs['category_id'])
-        return render(request, self.template_name, context={
-            'analyze_list':analyze_list,
-            'title': title
-        })
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category_pk = self.kwargs['pk']
+        subcategories = Analyze.objects.filter(category__pk=category_pk)
+        context['subcategories'] = subcategories
+        return context
+
+    # def get(self, request, *args, **kwargs):
+    #     # title = Analyze.objects.get(id=kwargs['category_id']).title
+    #     # analyze_list = Analyze.objects.filter(category_id=kwargs['category_id'])
+    #     analyze_list = Analyze.objects.all()
+    #     return render(request, self.template_name, context={
+    #         'analyze_list':analyze_list
+    #         # 'title': title
+    #     })
 
 
 class PharmacyView(TemplateView):
