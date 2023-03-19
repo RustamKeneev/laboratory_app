@@ -28,8 +28,8 @@ class SubcategoryDetail(RetrieveAPIView):
     serializer_class = AnalyzeSubcategorySerializer
 
 
-class PriceAnalyzeToLaboratoryListView(ListAPIView):
-    serializer_class = PriceAnalyzeToLaboratorySerializer
+# class PriceAnalyzeToLaboratoryListView(ListAPIView):
+#     serializer_class = PriceAnalyzeToLaboratorySerializer
 
 
 class IndexView(TemplateView):
@@ -59,30 +59,19 @@ class CategoryView(TemplateView):
         context['categories'] = categories
         return context
 
-    # def get(self, request, *args, **kwargs):
-    #     category_id = kwargs.get('category_id')
-    #     if category_id:
-    #         category = Category.objects.prefetch_related('subcategories').get(id=category_id)
-    #         context = {'category': category}
-    #     else:
-    #         category_list = Category.objects.prefetch_related('subcategories').all()
-    #         context = {'category_list': category_list}
-    #     return render(request, self.template_name, context=context)
-
 
 class CatalogView(TemplateView):
     template_name = 'laboratory/catalog.html'
 
     def get(self, request, *args, **kwargs):
         catalog_list = Category.objects.all()
-        # catalog_list = Category.objects.prefetch_related('subcategories').all()
         return render(request, self.template_name, context={
             'catalog_list': catalog_list,
         })
 
 
 class AnalyzeListView(TemplateView):
-    template_name = 'laboratory/news.html'
+    template_name = 'laboratory/analyze_list.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -91,13 +80,29 @@ class AnalyzeListView(TemplateView):
         context['subcategories'] = subcategories
         return context
 
+
+class AnalyzeDetailView(TemplateView):
+    template_name = 'laboratory/analyze_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        analyze = Analyze.objects.get(id=kwargs['id'])
+        return render(request, self.template_name, context={
+            'analyze': analyze,
+        })
+
+
+class LaboratoryListView(TemplateView):
+    template_name = 'laboratory/laboratory_list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['laboratories'] = Lab.objects.all()
+        return context
+
     # def get(self, request, *args, **kwargs):
-    #     # title = Analyze.objects.get(id=kwargs['category_id']).title
-    #     # analyze_list = Analyze.objects.filter(category_id=kwargs['category_id'])
-    #     analyze_list = Analyze.objects.all()
+    #     laboratory_list = Lab.objects.all()
     #     return render(request, self.template_name, context={
-    #         'analyze_list':analyze_list
-    #         # 'title': title
+    #         'laboratory_list': laboratory_list
     #     })
 
 

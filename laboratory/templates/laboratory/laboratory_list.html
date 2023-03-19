@@ -10,16 +10,17 @@
                         <div class="cat__cell">
                             <div class="cat__cell">
                                 <ul>
-                                    {% for analyze in subcategories %}
+                                    {% for laboratory in laboratories %}
                                         <li>
-                                             <a href="{% url 'analyze-detail' analyze.id %}">{{ analyze.title }}</a>
+{#                                             <a href="{% url 'analyze-detail' analyze.id %}">{{ analyze.title }}</a>#}
+                                        <h2>{{ laboratory.name }}</h2>
                                         </li>
                                     {% endfor %}
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    {% if not subcategories %}
+                    {% if not laboratories %}
                         <span>Пусто</span>
                     {% endif %}
                 </div>

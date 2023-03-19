@@ -46,3 +46,11 @@ class CategoryDetailAPI(APIView):
         category = self.get_object(pk)
         category.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class LaboratoryListAPI(APIView):
+    """All laboratory list"""
+    def get(self, request):
+        laboratory_list = Lab.objects.all()
+        data = LabSerializer(laboratory_list, many=True).data
+        return Response(data)

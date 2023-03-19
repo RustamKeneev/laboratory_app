@@ -4,10 +4,11 @@ from .models import Category, Lab, Analyze, PriceAnalyzeToLaboratory
 
 class PriceAnalyzeToLaboratorySerializer(serializers.ModelSerializer):
     lab_name = serializers.CharField(source='laboratory.name')
+    lab_image = serializers.ImageField(source='laboratory.image')
 
     class Meta:
         model = PriceAnalyzeToLaboratory
-        fields = ("lab_name", "price")
+        fields = ("lab_name", "price", "lab_image")
 
 
 class LabSerializer(serializers.ModelSerializer):

@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper product-page">
+        <div class="container">
+            <div class="content">
+                <div class="product-name"><h2 class="title">{{ analyze.title }} </h2></div>
+                {#                <div class="product-short">{{ drug.sub_title }}</div>#}
+                <div class="flex pr-flex">
+                    <div class="product-image">
+                        <img src="{{ analyze.image.url }}" alt="">
+                    </div>
+                    <div class="product-except">
+                        <p>
+                            <span class="pe-title">Подготовка к анализу:</span>
+                            <span class="pe-text">{{ analyze.preparationForAnalysis }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Требования:</span>
+                            <span class="pe-text">{{ analyze.requirements }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Интерпретация результатов:</span>
+                            <span class="pe-text">{{ analyze.interpretationOfResults }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Биоматериал:</span>
+                            <span class="pe-text">{{ analyze.biomaterial }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">срок выполнения день, выдачи результатов:</span>
+                            <span class="pe-text">{{ analyze.deadlineDateOfIssueOfResults }} часов</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="product-description">
+                    {#                    <div class="flex">#}
+                    {#                        <div class="top-link pd-active"><span>Информация</span></div>#}
+                    {#                        <div class="top-link"><a href="{% url 'pharmacy_list' drug.id %}">Узнать о наличие</a></div>#}
+                    {#                    </div>#}
+                    {#                    <h3 class="title">Инструкция</h3>#}
+                    {#                    <div class="pd-nav">#}
+                    {#                        <ul>#}
+                    {#                            {% for instruction in drug.instruction_set.all %}#}
+                    {#                                <li class="pd-nav__item"><a#}
+                    {#                                        href="#block-{{ instruction.id }}">{{ instruction.title }}</a></li>#}
+                    {#                            {% endfor %}#}
+                    {#                        </ul>#}
+                    {#                    </div>#}
+                    <div class="pd-content">
+                        <div class="pd-block">
+                            <h4 class="title">Описание</h4>
+                            <div class="text">{{ analyze.description|safe }}</div>
+                        </div>
+                        <h1>Цены в лаборатории</h1>
+                        {% for lab_price in analyze.lab_prices.all %}
+                            <div class="pd-block" id="block-{{ lab_price.id }}">
+                                <li class="lab_price_li">
+                                    {#                                    <a href="{% url 'laboratory_list' lab_price.lab_name %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>#}
+                                    {#                                    <img src="{{ lab_price.image.url }}" alt=""  width="50" height="50" style="background: #2D9CDB">#}
+                                    <a href="">
+                                        {{ lab_price.laboratory }} {{ lab_price.price }} сом
+                                    </a>
+                                </li>
+                                <div class="text">{{ instruction.description|safe }}</div>
+                            </div>
+                        {% endfor %}
 
-</body>
-</html>
+                    </div>
+                </div>
+            </div>
+            {#            {% side_bar %}#}
+        </div>
+    </div>
+{% endblock %}

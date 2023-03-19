@@ -4,7 +4,9 @@ from .apiviews import *
 
 urlpatterns = [
     path('category/', CategoryView.as_view(), name='category'),
-    path('category/<int:pk>/', AnalyzeListView.as_view(), name='category-detail'),
+    path('category/<int:pk>/', AnalyzeListView.as_view(), name='sub-category-list'),
+    path('analyzedetail/<int:id>/', AnalyzeDetailView.as_view(), name='analyze-detail'),
+    path('laboratories/', LaboratoryListView.as_view(), name='laboratory_list'),
     path('catalog/', CatalogView.as_view(), name='catalog'),
     path('pharmacy/', PharmacyView.as_view(), name='pharmacy'),
     path('doctors/', DoctorsView.as_view(), name='doctors'),
@@ -14,7 +16,7 @@ urlpatterns = [
     path('subcategories/', SubcategoryList.as_view(), name='subcategory-list'),
     # path('categories/<int:pk>/', CategoryDetail.as_view(), name='category-detail'),
     path('subcategories/<int:pk>/', SubcategoryDetail.as_view(), name='subcategory-detail'),
-    path('priceanalyze/', PriceAnalyzeToLaboratoryListView.as_view(), name='price-analyze'),
+    # path('priceanalyze/', PriceAnalyzeToLaboratoryListView.as_view(), name='price-analyze'),
     path('category/', CategoryAPI.as_view(), name='category'),
     # path('subcategory/', AnalyzeSubcategoryAPI.as_view(), name='sub_category'),
 ]

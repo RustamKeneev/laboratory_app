@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
+    'rest_framework_swagger',
     'laboratory',
     'rest',
 ]
@@ -70,6 +71,10 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+  'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
 
 WSGI_APPLICATION = 'laboratory_app.wsgi.application'
 
@@ -184,6 +189,8 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

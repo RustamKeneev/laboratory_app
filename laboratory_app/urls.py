@@ -16,16 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls.static import static
-
 from laboratory import views
 from laboratory_app import settings
+from rest_framework_swagger.views import get_swagger_view
 from rest_framework.authtoken import views as rf_views
 
+schema_view = get_swagger_view(title='Online Pharmacy API')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'ckeditor/', include('ckeditor_uploader.urls')),
+    # url(r'^api-token-auth/', rf_views.obtain_auth_token),
+    path('api/', schema_view),
     path('api/v1/', include("laboratory.urls")),
     path('', views.IndexView.as_view(), name='index'),
 ]

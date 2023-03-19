@@ -23,7 +23,7 @@
                             <div class="cat__cell">
                                 <div class="cat__cell">
 {#                                    <span>{{ category.name }}</span>#}
-                                    <a href="{% url 'category-detail' pk=category.pk  %}"> {{ category.name }}</a>
+                                    <a href="{% url 'sub-category-list' category.pk  %}"> {{ category.name }}</a>
                                 </div>
                             </div>
                         {% endfor %}

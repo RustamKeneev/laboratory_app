@@ -18,6 +18,7 @@ class Analyze(models.Model):
         verbose_name_plural = 'Анализы'
 
     title = models.CharField('Название', max_length=256)
+    image = models.ImageField(upload_to='laboratory/images')
     description = models.TextField('Описание')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")
     parent_subcategory = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='child_subcategories')
