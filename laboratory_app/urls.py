@@ -30,6 +30,7 @@ urlpatterns = [
     # url(r'^api-token-auth/', rf_views.obtain_auth_token),
     path('api/', schema_view),
     path('api/v1/', include("laboratory.urls")),
+    path('api/v1/', include("doctors.urls")),
     path('', views.IndexView.as_view(), name='index'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,12 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics
-from rest_framework.generics import RetrieveAPIView, ListAPIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.views import APIView
-from .models import Category, Lab, Analyze, PriceAnalyzeToLaboratory
+from rest_framework.generics import RetrieveAPIView
+from .models import Category, Lab, Analyze
 from django.views.generic import TemplateView
-from .serializers import CategorySerializer, AnalyzeSubcategorySerializer, LabSerializer, PriceAnalyzeToLaboratorySerializer
+from .serializers import AnalyzeSubcategorySerializer
 from rest.models import *
 
 
@@ -26,10 +23,6 @@ class CategoryDetail(TemplateView):
 class SubcategoryDetail(RetrieveAPIView):
     queryset = Analyze.objects.all()
     serializer_class = AnalyzeSubcategorySerializer
-
-
-# class PriceAnalyzeToLaboratoryListView(ListAPIView):
-#     serializer_class = PriceAnalyzeToLaboratorySerializer
 
 
 class IndexView(TemplateView):
