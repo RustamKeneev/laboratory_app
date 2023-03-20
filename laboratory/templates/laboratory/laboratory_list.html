@@ -12,8 +12,8 @@
                                 <ul>
                                     {% for laboratory in laboratories %}
                                         <li>
-{#                                             <a href="{% url 'analyze-detail' analyze.id %}">{{ analyze.title }}</a>#}
-                                        <h2>{{ laboratory.name }}</h2>
+                                             <a href="{% url 'laboratory_detail' laboratory.id %}">{{ laboratory.name }}</a>
+{#                                        <h2>{{ laboratory.name }}</h2>#}
                                         </li>
                                     {% endfor %}
                                 </ul>

@@ -99,11 +99,15 @@ class LaboratoryListView(TemplateView):
         context['laboratories'] = Lab.objects.all()
         return context
 
-    # def get(self, request, *args, **kwargs):
-    #     laboratory_list = Lab.objects.all()
-    #     return render(request, self.template_name, context={
-    #         'laboratory_list': laboratory_list
-    #     })
+
+class LaboratoryDetailView(TemplateView):
+    template_name = 'laboratory/laboratory_detail.html'
+
+    def get(self, request, *args, **kwargs):
+        laboratory_detail = Lab.objects.get(id=kwargs['id'])
+        return render(request, self.template_name, context={
+            'laboratory_detail': laboratory_detail,
+        })
 
 
 class PharmacyView(TemplateView):

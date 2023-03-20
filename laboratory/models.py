@@ -44,7 +44,7 @@ class Lab(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     phone = models.CharField(max_length=20, verbose_name='Телефон номер')
-    address = models.CharField(max_length=200, verbose_name='Адрес аптеки')
+    address = models.CharField(max_length=200, verbose_name='Адрес лаборатории')
     website = models.URLField(null=True, blank=True, verbose_name='Веб сайт (url)')
     date = models.DateTimeField(auto_now_add=True, null=True)
 

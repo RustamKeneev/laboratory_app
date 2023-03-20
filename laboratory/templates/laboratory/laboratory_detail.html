@@ -1,0 +1,48 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper product-page">
+        <div class="container">
+            <div class="content">
+                <div class="product-name"><h2 class="title">{{ laboratory_detail.name }} </h2></div>
+                {#                <div class="product-short">{{ drug.sub_title }}</div>#}
+                <div class="flex pr-flex">
+                    <div class="product-image">
+                        <img src="{{ laboratory_detail.image.url }}" alt="">
+                    </div>
+                    <div class="product-except">
+                        <p>
+                            <span class="pe-title">Адрес лаборатории:</span>
+                            <span class="pe-text">{{ laboratory_detail.address }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Телефон номер:</span>
+                            <span class="pe-text">{{ laboratory_detail.phone }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Веб сайт лаборптории:</span>
+                            <span class="pe-text">{{ laboratory_detail.website }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Географические координаты лаборатории - Широта:</span>
+                            <span class="pe-text">{{ laboratory_detail.latitude }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Географические координаты лаборатории - Долгота:</span>
+                            <span class="pe-text">{{ laboratory_detail.longitude }} часов</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="product-description">
+                    <div class="pd-content">
+                        <div class="pd-block">
+                            <h4 class="title">Описание</h4>
+                            <div class="text">{{ laboratory_detail.description|safe }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {#            {% side_bar %}#}
+        </div>
+    </div>
+{% endblock %}

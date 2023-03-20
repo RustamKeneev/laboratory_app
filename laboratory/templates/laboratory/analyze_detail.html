@@ -34,19 +34,6 @@
                     </div>
                 </div>
                 <div class="product-description">
-                    {#                    <div class="flex">#}
-                    {#                        <div class="top-link pd-active"><span>Информация</span></div>#}
-                    {#                        <div class="top-link"><a href="{% url 'pharmacy_list' drug.id %}">Узнать о наличие</a></div>#}
-                    {#                    </div>#}
-                    {#                    <h3 class="title">Инструкция</h3>#}
-                    {#                    <div class="pd-nav">#}
-                    {#                        <ul>#}
-                    {#                            {% for instruction in drug.instruction_set.all %}#}
-                    {#                                <li class="pd-nav__item"><a#}
-                    {#                                        href="#block-{{ instruction.id }}">{{ instruction.title }}</a></li>#}
-                    {#                            {% endfor %}#}
-                    {#                        </ul>#}
-                    {#                    </div>#}
                     <div class="pd-content">
                         <div class="pd-block">
                             <h4 class="title">Описание</h4>
@@ -56,11 +43,7 @@
                         {% for lab_price in analyze.lab_prices.all %}
                             <div class="pd-block" id="block-{{ lab_price.id }}">
                                 <li class="lab_price_li">
-                                    {#                                    <a href="{% url 'laboratory_list' lab_price.lab_name %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>#}
-                                    {#                                    <img src="{{ lab_price.image.url }}" alt=""  width="50" height="50" style="background: #2D9CDB">#}
-                                    <a href="">
-                                        {{ lab_price.laboratory }} {{ lab_price.price }} сом
-                                    </a>
+                                    <a href="{% url 'laboratory_detail' lab_price.id %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>
                                 </li>
                                 <div class="text">{{ instruction.description|safe }}</div>
                             </div>
