@@ -16,6 +16,29 @@
     width: 50px;
 }
 
+.call_and_whatsapp {
+    display: flex;
+    flex-direction: row;
+    background: #2D9CDB;
+    width: 100%;
+    height: 50px;
+}
+
+.call_us {
+    background: #0d5aa7;
+    width: 50%;
+    height: 50px;
+    /*margin-right: 6px;*/
+}
+
+.whats_app_message_link {
+    background: #00FF00;
+    width: 50%;
+    height: 50px;
+    /*margin-left: 6px;*/
+}
+
+
 
 body,
 html,

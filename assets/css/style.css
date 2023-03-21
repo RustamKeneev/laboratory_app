@@ -8,11 +8,57 @@
     line-height: 1.6;
 }
 
-/*.doctor_type_div {*/
-/*    background: #2D9CDB;*/
-/*    height: 50px;*/
-/*    width: 50px;*/
-/*}*/
+
+.call_and_whatsapp {
+    display: flex;
+    flex-direction: row;
+    /*background: #2D9CDB;*/
+    width: 100%;
+    height: 50px;
+}
+
+.call_us {
+    /*background: #0d5aa7;*/
+    width: 50%;
+    height: 50px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    outline: #00C697 solid 2px;
+    border-radius: 4px;
+}
+
+.call_us a {
+    text-align: center;
+    font-size: 25px;
+}
+
+.call_us h3 {
+    color: #00C697;
+}
+
+.whats_app_message_link {
+    width: 50%;
+    height: 50px;
+    margin-left: 10px;
+     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    outline: #00C697 solid 2px;
+    border-radius: 4px;
+}
+
+.whats_app_message_link a {
+    text-align: center;
+    font-size: 25px;
+}
+
+.whats_app_message_link h3 {
+    color: #00C697;
+}
 
 body,
 html,

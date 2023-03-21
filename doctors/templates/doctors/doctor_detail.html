@@ -35,6 +35,15 @@
                     </div>
                 </div>
                 <div class="product-description">
+                    <div class="call_and_whatsapp">
+                        <div class="call_us">
+                            <a href="tel:{{ doctors.doctorPhoneNumber }}"
+                               onclick="makePhoneCall('{{ doctors.doctorPhoneNumber }}')"><h3>Позвонить</h3></a>
+                        </div>
+                        <div class="whats_app_message_link">
+                            <a href="https://wa.me/{{ doctors.doctorPhoneNumber }}"><h3>Написать</h3></a>
+                        </div>
+                    </div>
                     <div class="pd-content">
                         <div class="pd-block">
                             <h4 class="title">Образование</h4>
@@ -52,4 +61,12 @@
             {% side_bar %}
         </div>
     </div>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    function makePhoneCall(number) {
+      window.location.href = "tel:" + number;
+    }
+  </script>
 {% endblock %}

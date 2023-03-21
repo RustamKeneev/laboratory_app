@@ -42,9 +42,14 @@
                         <h1>Цены в лаборатории</h1>
                         {% for lab_price in analyze.lab_prices.all %}
                             <div class="pd-block" id="block-{{ lab_price.id }}">
-                                <li class="lab_price_li">
-                                    <a href="{% url 'laboratory_detail' lab_price.id %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>
-                                </li>
+                              <div class="cat__cell-title"
+                                   data-tab="subcategories-block-{{ forloop.counter }}">
+                                  <img src="{{ lab_price.lab_image.url }}" alt="">
+                                  <a href="{% url 'laboratory_detail' lab_price.id %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>
+                              </div>
+{#                                <li class="lab_price_li">#}
+{#                                    <a href="{% url 'laboratory_detail' lab_price.id %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>#}
+{#                                </li>#}
                                 <div class="text">{{ instruction.description|safe }}</div>
                             </div>
                         {% endfor %}
