@@ -4,5 +4,6 @@ from .apiviews import *
 
 urlpatterns = [
     path('doctortypes/', DoctorTypeView.as_view(), name='doctor_type'),
-    # path('category/<int:pk>/', AnalyzeListView.as_view(), name='sub-category-list'),
+    path('doctors/<int:pk>/', DoctorListView.as_view(), name='doctor_list'),
+    path('doctordetail/<int:id>/', DoctorDetailView.as_view(), name='doctor_detail'),
 ]

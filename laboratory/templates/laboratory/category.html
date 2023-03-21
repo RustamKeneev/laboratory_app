@@ -22,8 +22,11 @@
                         {% for category in categories %}
                             <div class="cat__cell">
                                 <div class="cat__cell">
-{#                                    <span>{{ category.name }}</span>#}
-                                    <a href="{% url 'sub-category-list' category.pk  %}"> {{ category.name }}</a>
+                                    <div class="cat__cell-title" data-tab="subcategories-block-{{ forloop.counter }}">
+                                        <img src="{{ category.image.url }}" alt=""><span>
+                                        <a href="{% url 'sub-category-list' category.pk  %}"> {{ category.name }}
+                                        </a></span>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}

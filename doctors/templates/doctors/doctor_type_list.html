@@ -22,8 +22,10 @@
                         {% for doctor_type in doctor_types %}
                             <div class="cat__cell">
                                 <div class="cat__cell">
-                                    <span>{{ doctor_type.name }}</span>
-{#                                    <a href="{% url 'sub-category-list' category.pk  %}"> {{ category.name }}</a>#}
+                                    <div class="cat__cell-title" data-tab="subcategories-block-{{ forloop.counter }}">
+                                        <img src="{{ doctor_type.image.url }}" alt="">
+                                        <a href="{% url 'doctor_list' doctor_type.pk  %}"> {{ doctor_type.name }}</a>
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}

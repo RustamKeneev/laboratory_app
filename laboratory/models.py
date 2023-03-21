@@ -7,6 +7,8 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='laboratory/images')
+
 
     def __str__(self):
         return self.name

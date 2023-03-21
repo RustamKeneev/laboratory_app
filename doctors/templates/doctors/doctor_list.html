@@ -10,17 +10,18 @@
                         <div class="cat__cell">
                             <div class="cat__cell">
                                 <ul>
-                                    {% for analyze in subcategories %}
-                                        <div class="cat__cell-title" data-tab="subcategories-block-{{ forloop.counter }}">
-                                            <img src="{{ analyze.image.url }}" alt="">
-                                            <a href="{% url 'analyze-detail' analyze.id %}">{{ analyze.title }}</a>
-                                        </div>
+                                    {% for doctors in doctorType %}
+                                        <div class="cat__cell-title"
+                                             data-tab="subcategories-block-{{ forloop.counter }}">
+                                            <img src="{{ doctors.doctorImage.url }}" alt="">
+                                             <a href="{% url 'doctor_detail' doctors.pk %}">{{ doctors.doctorFullName }}</a>
+                                      </div>
                                     {% endfor %}
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    {% if not subcategories %}
+                    {% if not doctorType %}
                         <span>Пусто</span>
                     {% endif %}
                 </div>

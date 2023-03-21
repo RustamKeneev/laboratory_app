@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load doctors_tags %}
+{% block content %}
+    <div class="wrapper product-page">
+        <div class="container">
+            <div class="content">
+                <div class="product-name"><h2 class="title">{{ doctors.doctorType }} </h2></div>
+                {#                <div class="product-short">{{ drug.sub_title }}</div>#}
+                <div class="flex pr-flex">
+                    <div class="product-image">
+                        <img src="{{ doctors.doctorImage.url }}" alt="">
+                    </div>
+                    <div class="product-except">
+                        <p>
+                            <span class="pe-title">ФИО:</span>
+                            <span class="pe-text">{{ doctors.doctorFullName }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Должность:</span>
+                            <span class="pe-text">{{ doctors.medical_staff_positions }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Статус специалиста:</span>
+                            <span class="pe-text">{{ doctors.doctorStatus }}</span>
+                        </p>
+                        <p>
+                            <span class="pe-title">Адресс работы:</span>
+                            <span class="pe-text">{{ doctors.doctorWorkLocation }}</span>
+                        </p>
+{#                        <p>#}
+{#                            <span class="pe-title">срок выполнения день, выдачи результатов:</span>#}
+{#                            <span class="pe-text">{{ analyze.deadlineDateOfIssueOfResults }} часов</span>#}
+{#                        </p>#}
+                    </div>
+                </div>
+                <div class="product-description">
+                    <div class="pd-content">
+                        <div class="pd-block">
+                            <h4 class="title">Образование</h4>
+                            <div class="text">{{ doctors.doctorEducation|safe }}</div>
+                        </div>
+                    </div>
+                    <div class="pd-content">
+                        <div class="pd-block">
+                            <h4 class="title">Информация о специалиста</h4>
+                            <div class="text">{{ doctors.doctorInfo|safe }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% side_bar %}
+        </div>
+    </div>
+{% endblock %}

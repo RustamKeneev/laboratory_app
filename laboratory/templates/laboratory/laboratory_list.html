@@ -11,10 +11,11 @@
                             <div class="cat__cell">
                                 <ul>
                                     {% for laboratory in laboratories %}
-                                        <li>
-                                             <a href="{% url 'laboratory_detail' laboratory.id %}">{{ laboratory.name }}</a>
-{#                                        <h2>{{ laboratory.name }}</h2>#}
-                                        </li>
+                                        <div class="cat__cell-title"
+                                             data-tab="subcategories-block-{{ forloop.counter }}">
+                                            <img src="{{ laboratory.image.url }}" alt="">
+                                            <a href="{% url 'laboratory_detail' laboratory.id %}">{{ laboratory.name }}</a>
+                                      </div>
                                     {% endfor %}
                                 </ul>
                             </div>

@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from laboratory import views
 from laboratory_app import settings
 from rest_framework_swagger.views import get_swagger_view
+
 from rest_framework.authtoken import views as rf_views
 
 schema_view = get_swagger_view(title='Online Pharmacy API')
@@ -29,9 +30,12 @@ urlpatterns = [
     re_path(r'ckeditor/', include('ckeditor_uploader.urls')),
     # url(r'^api-token-auth/', rf_views.obtain_auth_token),
     path('api/', schema_view),
+    # url(r'^$', schema_view),
     path('api/v1/', include("laboratory.urls")),
     path('api/v1/', include("doctors.urls")),
     path('', views.IndexView.as_view(), name='index'),
 ]
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

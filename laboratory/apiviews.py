@@ -54,3 +54,5 @@ class LaboratoryListAPI(APIView):
         laboratory_list = Lab.objects.all()
         data = LabSerializer(laboratory_list, many=True).data
         return Response(data)
+
+

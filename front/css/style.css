@@ -8,6 +8,15 @@
     line-height: 1.6;
 }
 
+
+
+.doctor_type_div {
+    background: #2D9CDB;
+    height: 50px;
+    width: 50px;
+}
+
+
 body,
 html,
 input {
