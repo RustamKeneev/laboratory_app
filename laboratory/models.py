@@ -9,7 +9,6 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='laboratory/images')
 
-
     def __str__(self):
         return self.name
 
@@ -23,7 +22,8 @@ class Analyze(models.Model):
     image = models.ImageField(upload_to='laboratory/images')
     description = models.TextField('Описание')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="subcategories")
-    parent_subcategory = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True, related_name='child_subcategories')
+    parent_subcategory = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True,
+                                           related_name='child_subcategories')
     preparationForAnalysis = models.TextField('Подготовка к анализу')
     requirements = models.TextField('Требования')
     interpretationOfResults = models.TextField('Интерпретация результатов')

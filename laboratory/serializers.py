@@ -8,7 +8,7 @@ class PriceAnalyzeToLaboratorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PriceAnalyzeToLaboratory
-        fields = ("lab_name", "price", "lab_image")
+        fields = ("id", "lab_name", "price", "lab_image")
 
 
 class LabSerializer(serializers.ModelSerializer):

@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load laboratory_tags %}
 {% block content %}
     <div class="wrapper product-page">
         <div class="container">
@@ -47,9 +48,6 @@
                                   <img src="{{ lab_price.lab_image.url }}" alt="">
                                   <a href="{% url 'laboratory_detail' lab_price.id %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>
                               </div>
-{#                                <li class="lab_price_li">#}
-{#                                    <a href="{% url 'laboratory_detail' lab_price.id %}">{{ lab_price.laboratory }} {{ lab_price.price }} сом</a>#}
-{#                                </li>#}
                                 <div class="text">{{ instruction.description|safe }}</div>
                             </div>
                         {% endfor %}
@@ -57,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            {#            {% side_bar %}#}
+            {% side_bar %}
         </div>
     </div>
 {% endblock %}

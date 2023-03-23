@@ -1,8 +1,5 @@
-from laboratory_app import settings
-from django.conf.urls.static import static
-from django.urls import path, include
+from django.urls import path
 from .views import *
-from .apiviews import *
 
 urlpatterns = [
     path('category/', CategoryView.as_view(), name='category'),
@@ -17,12 +14,4 @@ urlpatterns = [
     path('articles/', ArticlesView.as_view(), name='articles'),
     path('contacts/', ContactsView.as_view(), name='contacts'),
     path('subcategories/', SubcategoryList.as_view(), name='subcategory-list'),
-    # path('categories/<int:pk>/', CategoryDetail.as_view(), name='category-detail'),
-    # path('subcategories/<int:pk>/', SubcategoryDetail.as_view(), name='subcategory-detail'),
-    # path('category_api/', CategoryAPI.as_view(), name='category'),
-    # path('subcategory/', AnalyzeSubcategoryAPI.as_view(), name='sub_category'),
 ]
-
-
-# urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

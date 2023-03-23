@@ -19,13 +19,6 @@ from django.conf.urls.static import static
 from laboratory import views
 from laboratory_app import settings
 from rest_framework_swagger.views import get_swagger_view
-# from django.conf.urls import url
-from django.conf.urls import ( handler400, handler403, handler404, handler500)
-
-# handler400 = 'my_app.views.bad_request'
-# handler403 = 'my_app.views.permission_denied'
-# handler404 = 'my_app.views.page_not_found'
-# handler500 = 'my_app.views.server_error'
 
 schema_view = get_swagger_view(title='Online Pharmacy API')
 
@@ -40,8 +33,7 @@ urlpatterns = [
     path('api/v1/', include("doctors.urls")),
     path('', views.IndexView.as_view(), name='index'),
     path('laboratory/api/', include('laboratory.apiurls')),
-    # path('laboratory/api/', include('laboratory.apiurls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

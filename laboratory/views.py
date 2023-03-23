@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from rest_framework import generics
-from rest_framework.generics import RetrieveAPIView
 from .models import Category, Lab, Analyze
 from django.views.generic import TemplateView
 from .serializers import AnalyzeSubcategorySerializer
@@ -18,11 +17,6 @@ class CategoryDetail(TemplateView):
     model = Category
     template_name = 'laboratory/analyze_list.html'
     context_object_name = 'category'
-
-
-# class SubcategoryDetail(RetrieveAPIView):
-#     queryset = Analyze.objects.all()
-#     serializer_class = AnalyzeSubcategorySerializer
 
 
 class IndexView(TemplateView):
@@ -149,5 +143,5 @@ class ContactsView(TemplateView):
     def get(self, request, *args, **kwargs):
         contacts_list = Category.objects.all()
         return render(request, self.template_name, context={
-            'contacts_list': contacts_list,
+            'contacts_list': contacts_list
         })

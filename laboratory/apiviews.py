@@ -1,4 +1,4 @@
-from rest_framework import generics, status
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from laboratory.serializers import *
@@ -7,7 +7,8 @@ from laboratory.models import *
 
 class CategoryAPI(APIView):
     """All category list"""
-    def get(self, request):
+    @staticmethod
+    def get(request):
         category_list = Category.objects.all()
         data = CategorySerializer(category_list, many=True).data
         return Response(data)
@@ -18,6 +19,14 @@ class AnalyzeSubcategoryAPI(APIView):
     def get(self, request, **kwargs):
         analyze_sub_category_list = Analyze.objects.filter(category_id=kwargs['category_id'])
         data = SubcategorySerializer(analyze_sub_category_list, many=True).data
+        return Response(data)
+
+
+class AnalyzeDetailAPI(APIView):
+    """Analyze detail information"""
+    def get(self, request, **kwargs):
+        analyze = Analyze.objects.get(id=kwargs['analyze_id'])
+        data = AnalyzeSubcategorySerializer(analyze).data
         return Response(data)
 
 
@@ -54,5 +63,17 @@ class LaboratoryListAPI(APIView):
         laboratory_list = Lab.objects.all()
         data = LabSerializer(laboratory_list, many=True).data
         return Response(data)
+
+
+class LaboratoryDetailAPI(APIView):
+    """Laboratory detail information"""
+    def get(self, request, **kwargs):
+        laboratory = Lab.objects.get(id=kwargs['laboratory_id'])
+        data = LabSerializer(laboratory).data
+        return Response(data)
+
+
+
+
 
 
