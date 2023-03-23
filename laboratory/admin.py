@@ -11,7 +11,6 @@ class PriceAnalyzeToLaboratoryAdmin(admin.TabularInline):
 @admin.register(Analyze)
 class LaboratoryAdmin(admin.ModelAdmin):
     inlines = [PriceAnalyzeToLaboratoryAdmin]
-    # list_display = ['price']
 
 
 admin.site.register(Category)

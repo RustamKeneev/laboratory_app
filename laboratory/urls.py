@@ -18,9 +18,8 @@ urlpatterns = [
     path('contacts/', ContactsView.as_view(), name='contacts'),
     path('subcategories/', SubcategoryList.as_view(), name='subcategory-list'),
     # path('categories/<int:pk>/', CategoryDetail.as_view(), name='category-detail'),
-    path('subcategories/<int:pk>/', SubcategoryDetail.as_view(), name='subcategory-detail'),
-    # path('priceanalyze/', PriceAnalyzeToLaboratoryListView.as_view(), name='price-analyze'),
-    path('category/', CategoryAPI.as_view(), name='category'),
+    # path('subcategories/<int:pk>/', SubcategoryDetail.as_view(), name='subcategory-detail'),
+    # path('category_api/', CategoryAPI.as_view(), name='category'),
     # path('subcategory/', AnalyzeSubcategoryAPI.as_view(), name='sub_category'),
 ]
 

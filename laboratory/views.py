@@ -20,9 +20,9 @@ class CategoryDetail(TemplateView):
     context_object_name = 'category'
 
 
-class SubcategoryDetail(RetrieveAPIView):
-    queryset = Analyze.objects.all()
-    serializer_class = AnalyzeSubcategorySerializer
+# class SubcategoryDetail(RetrieveAPIView):
+#     queryset = Analyze.objects.all()
+#     serializer_class = AnalyzeSubcategorySerializer
 
 
 class IndexView(TemplateView):

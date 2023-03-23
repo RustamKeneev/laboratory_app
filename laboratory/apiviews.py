@@ -2,7 +2,7 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from laboratory.serializers import *
-from laboratory.models import Category
+from laboratory.models import *
 
 
 class CategoryAPI(APIView):
