@@ -33,6 +33,7 @@ urlpatterns = [
     path('api/v1/', include("doctors.urls")),
     path('', views.IndexView.as_view(), name='index'),
     path('laboratory/api/', include('laboratory.apiurls')),
+    path('doctors/api/', include('doctors.apiurls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
